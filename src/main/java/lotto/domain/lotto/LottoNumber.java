@@ -18,4 +18,8 @@ public class LottoNumber {
             LottoException.LOTTO_NUMBER_OUT_OF_RANGE.make();
         }
     }
+
+    public int getNumber() {
+        return number;
+    }
 }

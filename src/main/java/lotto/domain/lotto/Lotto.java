@@ -34,7 +34,14 @@ public class Lotto {
 
     private List<LottoNumber> toLottoNumbers(List<Integer> numbers) {
         return numbers.stream()
+                .sorted()
                 .map(LottoNumber::new)
+                .toList();
+    }
+
+    public List<Integer> calculateNumbers() {
+        return numbers.stream()
+                .map(LottoNumber::getNumber)
                 .toList();
     }
 }

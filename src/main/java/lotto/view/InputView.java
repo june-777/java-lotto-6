@@ -29,4 +29,10 @@ public class InputView {
                 .map(Integer::parseInt)
                 .toList();
     }
+
+    public int readBonusNumber() {
+        String bonusNumberInput = reader.readLine();
+        // TODO: input validate
+        return Integer.parseInt(bonusNumberInput);
+    }
 }

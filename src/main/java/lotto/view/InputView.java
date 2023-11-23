@@ -21,7 +21,7 @@ public class InputView {
 
     public List<Integer> readWinningNumbers() {
         String winningNumberInput = reader.readLine();
-        // TODO: input validate
+        InputValidator.validateWinningNumbers(winningNumberInput);
         return mapFrom(winningNumberInput);
     }
 

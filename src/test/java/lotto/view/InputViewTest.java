@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 
 /**
- * 여기까지 48분걸림..
+ * 여기까지 1시간 17분 소요;;
  */
 class InputViewTest {
 
@@ -88,6 +88,40 @@ class InputViewTest {
         void notNumeric(String input) {
             InputView inputView = new InputView(() -> input);
             Assertions.assertThatThrownBy(inputView::readWinningNumbers)
+                    .hasMessage(InputException.NOT_NUMERIC.getMessage());
+        }
+    }
+
+    @DisplayName("로또 구입 금액을 입력 받을 때")
+    @Nested
+    class InputBonusNumber {
+
+        @DisplayName(EXCEPTION_PREFIX + "공백 입력 시 예외 발생")
+        @ParameterizedTest
+        @ValueSource(strings = {
+                "", " ", "   ", "    ", "     ",
+                "\n", "\t", "\r"})
+        void blank(String input) {
+            InputView inputView = new InputView(() -> input);
+            Assertions.assertThatThrownBy(inputView::readBonusNumber)
+                    .hasMessage(InputException.BLANK.getMessage());
+        }
+
+        @DisplayName(EXCEPTION_PREFIX + "최대 입력 길이를 초과하면 예외 발생")
+        @ParameterizedTest
+        @ValueSource(strings = {"45 ", "123"})
+        void exceedLength(String input) {
+            InputView inputView = new InputView(() -> input);
+            Assertions.assertThatThrownBy(inputView::readBonusNumber)
+                    .hasMessage(InputException.EXCEED_INPUT_LENGTH.getMessage());
+        }
+
+        @DisplayName(EXCEPTION_PREFIX + "숫자 아닌 입력 시 예외 발생")
+        @ParameterizedTest
+        @ValueSource(strings = {"!", "I7", "ㄱㄱ", "1r", " 1", "2 "})
+        void notNumeric(String input) {
+            InputView inputView = new InputView(() -> input);
+            Assertions.assertThatThrownBy(inputView::readBonusNumber)
                     .hasMessage(InputException.NOT_NUMERIC.getMessage());
         }
     }

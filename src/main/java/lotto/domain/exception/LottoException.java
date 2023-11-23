@@ -1,4 +1,4 @@
-package lotto.exception;
+package lotto.domain.exception;
 
 public enum LottoException {
     LOTTO_NUMBER_OUT_OF_RANGE("로또 숫자는 1 ~ 45 범위여야 합니다."),

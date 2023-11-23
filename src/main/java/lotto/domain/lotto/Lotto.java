@@ -2,7 +2,7 @@ package lotto.domain.lotto;
 
 import java.util.HashSet;
 import java.util.List;
-import lotto.exception.LottoException;
+import lotto.domain.exception.LottoException;
 
 public class Lotto {
     private static final int REQUIRED_SIZE = 6;

@@ -1,7 +1,7 @@
 package lotto.domain.lotto;
 
 import java.util.Objects;
-import lotto.exception.LottoException;
+import lotto.domain.exception.LottoException;
 
 public class LottoNumber {
     private static final int MIN = 1;

@@ -2,7 +2,7 @@ package lotto.domain;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import lotto.exception.PurchaseAmountException;
+import lotto.domain.exception.PurchaseAmountException;
 
 public class PurchaseAmount {
     private static final int UNIT = 1000;
@@ -39,7 +39,7 @@ public class PurchaseAmount {
         RoundingMode roundingMode = RoundingMode.HALF_UP;
         BigDecimal yield = new BigDecimal(totalPrize);
         yield = yield.multiply(new BigDecimal(100));
-        
+
         return yield.divide(new BigDecimal(amount), roundScale, roundingMode);
     }
 }

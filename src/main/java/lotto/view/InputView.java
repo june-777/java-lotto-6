@@ -21,6 +21,7 @@ public class InputView {
     }
 
     public List<Integer> readWinningNumbers() {
+        System.out.println();
         System.out.println(Message.WINNING_NUMBERS.message);
         String winningNumberInput = reader.readLine();
         InputValidator.validateWinningNumbers(winningNumberInput);
@@ -34,6 +35,7 @@ public class InputView {
     }
 
     public int readBonusNumber() {
+        System.out.println();
         System.out.println(Message.BONUS_NUMBER.message);
         String bonusNumberInput = reader.readLine();
         InputValidator.validateBonusNumber(bonusNumberInput);

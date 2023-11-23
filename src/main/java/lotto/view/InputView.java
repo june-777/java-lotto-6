@@ -3,6 +3,7 @@ package lotto.view;
 import java.util.Arrays;
 import java.util.List;
 import lotto.view.reader.Reader;
+import lotto.view.validator.InputValidator;
 
 public class InputView {
 
@@ -14,7 +15,7 @@ public class InputView {
 
     public int readPurchaseAmount() {
         String purchaseAmountInput = reader.readLine();
-        // TODO: input validate
+        InputValidator.validatePurchaseAmount(purchaseAmountInput);
         return Integer.parseInt(purchaseAmountInput);
     }
 

@@ -1,5 +1,6 @@
 package lotto.domain.lotto;
 
+import java.util.Objects;
 import lotto.exception.LottoException;
 
 public class LottoNumber {
@@ -21,5 +22,22 @@ public class LottoNumber {
 
     public int getNumber() {
         return number;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LottoNumber that = (LottoNumber) o;
+        return number == that.number;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number);
     }
 }

@@ -48,4 +48,19 @@ public class Lotto {
     public boolean isContains(LottoNumber lottoNumber) {
         return numbers.contains(lottoNumber);
     }
+
+    public int calculateMatchCounts(Lotto other) {
+        int matchCounts = 0;
+        for (LottoNumber number : other.numbers) {
+            if (isContains(number)) {
+                matchCounts++;
+            }
+        }
+        return matchCounts;
+    }
+
+    @Override
+    public String toString() {
+        return "Lotto{" + numbers + '}';
+    }
 }

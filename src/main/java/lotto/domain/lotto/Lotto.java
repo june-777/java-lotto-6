@@ -15,6 +15,7 @@ public class Lotto {
 
     private void validate(List<Integer> numbers) {
         validateDuplicate(numbers);
+        validateSize(numbers);
     }
 
     private void validateDuplicate(List<Integer> numbers) {
@@ -22,6 +23,12 @@ public class Lotto {
 
         if (uniqueNumbers.size() != numbers.size()) {
             LottoException.LOTTO_DUPLICATE.make();
+        }
+    }
+
+    private void validateSize(List<Integer> numbers) {
+        if (numbers.size() != REQUIRED_SIZE) {
+            LottoException.LOTTO_OUT_OF_SIZE.make();
         }
     }
 

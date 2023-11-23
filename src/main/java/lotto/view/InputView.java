@@ -33,7 +33,7 @@ public class InputView {
 
     public int readBonusNumber() {
         String bonusNumberInput = reader.readLine();
-        // TODO: input validate
+        InputValidator.validateBonusNumber(bonusNumberInput);
         return Integer.parseInt(bonusNumberInput);
     }
 }

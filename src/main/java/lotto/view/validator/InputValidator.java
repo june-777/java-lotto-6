@@ -70,10 +70,10 @@ public class InputValidator {
     }
 
     private static void validateAllNumeric(String target) {
-        boolean notNumericExist = Arrays.stream(target.split(","))
-                .anyMatch(InputValidator::isNumeric);
+        boolean allIsNumeric = Arrays.stream(target.split(","))
+                .allMatch(InputValidator::isNumeric);
 
-        if (notNumericExist) {
+        if (!allIsNumeric) {
             InputException.NOT_NUMERIC.make();
         }
     }

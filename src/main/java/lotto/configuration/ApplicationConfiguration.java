@@ -1,10 +1,10 @@
 package lotto.configuration;
 
 import lotto.controller.LottoController;
-import lotto.service.LottoOffice;
+import lotto.domain.lotto.LottoOffice;
+import lotto.domain.lotto.generator.NumbersGenerator;
+import lotto.domain.lotto.generator.RandomNumbersGenerator;
 import lotto.service.YieldCalculator;
-import lotto.service.generator.NumbersGenerator;
-import lotto.service.generator.RandomNumbersGenerator;
 import lotto.view.InputView;
 import lotto.view.reader.ConsoleReader;
 import lotto.view.reader.Reader;

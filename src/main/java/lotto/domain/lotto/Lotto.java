@@ -44,4 +44,8 @@ public class Lotto {
                 .map(LottoNumber::getNumber)
                 .toList();
     }
+
+    public boolean isContains(LottoNumber lottoNumber) {
+        return numbers.contains(lottoNumber);
+    }
 }

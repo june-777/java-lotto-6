@@ -1,9 +1,9 @@
-package lotto.service;
+package lotto.domain.lotto;
 
 import java.util.ArrayList;
 import java.util.List;
 import lotto.domain.PurchaseAmount;
-import lotto.domain.lotto.Lotto;
+import lotto.domain.lotto.generator.NumbersGenerator;
 
 public class LottoOffice {
     private final NumbersGenerator lottoNumbersGenerator;
@@ -23,5 +23,10 @@ public class LottoOffice {
             lottos.add(new Lotto(lottoNumbersGenerator.generate()));
         }
         return lottos;
+    }
+
+    public WinningInformation publishWinningInformation(Lotto winningNumber, int bonus) {
+        LottoNumber bonusNumber = new LottoNumber(bonus);
+        return new WinningInformation(winningNumber, bonusNumber);
     }
 }

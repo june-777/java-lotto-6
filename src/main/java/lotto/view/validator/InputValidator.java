@@ -6,6 +6,7 @@ public class InputValidator {
 
     private static final int PURCHASE_AMOUNT_LENGTH = 9;
     private static final int WINNING_NUMBERS_LENGTH = 17;
+    private static final int BONUS_NUMBER_LENGTH = 2;
     private static final char SEPERATOR = ',';
 
     public static void validatePurchaseAmount(String purchaseAmount) {
@@ -19,6 +20,12 @@ public class InputValidator {
         validateMaxLength(winningNumbers, WINNING_NUMBERS_LENGTH);
         validateWinningNumbersInputForm(winningNumbers);
         validateAllNumeric(winningNumbers);
+    }
+
+    public static void validateBonusNumber(String bonusNumber) {
+        validateBlank(bonusNumber);
+        validateMaxLength(bonusNumber, BONUS_NUMBER_LENGTH);
+        validateNumeric(bonusNumber);
     }
 
     private static void validateBlank(String target) {

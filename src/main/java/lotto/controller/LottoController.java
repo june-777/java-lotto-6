@@ -30,7 +30,6 @@ public class LottoController {
         final PurchaseAmount purchaseAmount = setPurchaseAmount();
         final List<Lotto> lottos = lottoOffice.issueLottos(purchaseAmount);
         final PlayerLotto playerLotto = new PlayerLotto(lottos);
-
         renderingPurchaseLotto(lottos);
 
         final WinningInformation winningInformation = publishWinningInformation();

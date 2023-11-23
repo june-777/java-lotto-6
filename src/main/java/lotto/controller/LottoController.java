@@ -5,11 +5,10 @@ import java.util.List;
 import lotto.domain.PlayerResult;
 import lotto.domain.PurchaseAmount;
 import lotto.domain.lotto.Lotto;
-import lotto.domain.lotto.LottoNumber;
+import lotto.domain.lotto.LottoOffice;
 import lotto.domain.lotto.PlayerLotto;
 import lotto.domain.lotto.WinningInformation;
 import lotto.dto.mapper.PurchaseLottoViewMapper;
-import lotto.service.LottoOffice;
 import lotto.service.YieldCalculator;
 import lotto.view.InputView;
 import lotto.view.PurchaseLottoView;
@@ -66,8 +65,7 @@ public class LottoController {
     private WinningInformation setWinningInformation(Lotto winningNumbers) {
         return ExceptionHandler.handle(() -> {
             int bonusNumberInput = inputView.readBonusNumber();
-            LottoNumber bonusNumber = new LottoNumber(bonusNumberInput);
-            return new WinningInformation(winningNumbers, bonusNumber);
+            return lottoOffice.publishWinningInformation(winningNumbers, bonusNumberInput);
         });
     }
 

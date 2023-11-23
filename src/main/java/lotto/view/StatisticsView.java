@@ -13,10 +13,11 @@ public class StatisticsView {
     private static final int FIFTH = 5;
 
     public static void print(Map<Integer, Integer> rankCounts, BigDecimal yield) {
+        System.out.println();
         String result = Message.STATISTIC.getMessage(
                 rankCounts.get(FIFTH), rankCounts.get(FOURTH), rankCounts.get(THIRD),
-                rankCounts.get(SECOND), rankCounts.get(FIRST), PRICE_FORMAT.format(yield.doubleValue()));
-        System.out.println(result);
+                rankCounts.get(SECOND), rankCounts.get(FIRST), PRICE_FORMAT.format(yield.doubleValue())).trim();
+        System.out.print(result);
     }
 
     private enum Message {
@@ -28,8 +29,7 @@ public class StatisticsView {
                 5개 일치 (1,500,000원) - %d개
                 5개 일치, 보너스 볼 일치 (30,000,000원) - %d개
                 6개 일치 (2,000,000,000원) - %d개
-                총 수익률은 %s%%입니다.
-                """);
+                총 수익률은 %s%%입니다.""");
 
         private final String message;
 

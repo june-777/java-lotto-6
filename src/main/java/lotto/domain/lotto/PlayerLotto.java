@@ -19,7 +19,6 @@ public class PlayerLotto {
         LottoNumber bonusNumber = winningInformation.getBonusNumber();
 
         Map<Rank, Integer> eachRankCounts = calculateEachRankCounts(winningNumbers, bonusNumber);
-        System.out.println(eachRankCounts);
         return new PlayerResult(eachRankCounts);
     }
 

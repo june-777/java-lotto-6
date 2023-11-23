@@ -1,0 +1,51 @@
+package lotto.view;
+
+import lotto.view.validator.InputException;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+
+/**
+ * 여기까지 48분걸림..
+ */
+class InputViewTest {
+
+    static final String EXCEPTION_PREFIX = "[Exception]";
+
+    @DisplayName("로또 구입 금액을 입력 받을 때")
+    @Nested
+    class InputLottoPurchaseAmount {
+
+        @DisplayName(EXCEPTION_PREFIX + "공백 입력 시 예외 발생")
+        @ParameterizedTest
+        @ValueSource(strings = {
+                "", " ", "   ", "    ", "     ",
+                "\n", "\t", "\r"})
+        void blank(String input) {
+            InputView inputView = new InputView(() -> input);
+            Assertions.assertThatThrownBy(inputView::readPurchaseAmount)
+                    .hasMessage(InputException.BLANK.getMessage());
+        }
+
+        @DisplayName(EXCEPTION_PREFIX + "최대 입력 길이를 초과하면 예외 발생")
+        @ParameterizedTest
+        @ValueSource(strings = {"         1", "1234567890"})
+        void exceedLength(String input) {
+            InputView inputView = new InputView(() -> input);
+            Assertions.assertThatThrownBy(inputView::readPurchaseAmount)
+                    .hasMessage(InputException.EXCEED_PURCHASE_AMOUNT_LENGTH.getMessage());
+        }
+
+        @DisplayName(EXCEPTION_PREFIX + "숫자 아닌 입력 시 예외 발생")
+        @ParameterizedTest
+        @ValueSource(strings = {"!", "sdf", "ㄱㄱㄱ", "df1"})
+        void notNumeric(String input) {
+            InputView inputView = new InputView(() -> input);
+            Assertions.assertThatThrownBy(inputView::readPurchaseAmount)
+                    .hasMessage(InputException.NOT_NUMERIC.getMessage());
+        }
+    }
+}
